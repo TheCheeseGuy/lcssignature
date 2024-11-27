@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<title>Signature Creator | ISY</title>
+
+	<!---------- CSS ------------>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+tinymce.init({
+        selector: "textarea",
+        force_br_newlines : false,
+        force_p_newlines : false,
+        forced_root_block : '',
+        content_css : "css/style.css",
+        plugins: [
+                "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+                "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern"
+        ],
+
+        toolbar1: "bold italic underline | alignleft aligncenter alignjustify | forecolor | link",
+        menubar: false,
+        toolbar_items_size: 'small'
+});</script>
+
+<script type="text/javascript">
+<!--
+function validate()
+{
+   if( document.signatureform.name.value == "" )
+   {
+     alert( "Please provide your name!" );
+     document.signatureform.name.focus() ;
+     return false;
+   }
+   if( document.signatureform.designation.value == "" )
+   {
+     alert( "Please provide your Designation / Job Title!" );
+     document.signatureform.designation.focus() ;
+     return false;
+   }
+   
+   if( document.signatureform.Email.value == "" )
+   {
+     alert( "Please provide your Email Address!" );
+     document.signatureform.Email.focus() ;
+     return false;
+   }
+}
+
+function isNumberKey(evt)
+{
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+    return false;
+    return true;
+}
+//-->
+</script>
+
+</head>
+
+<body>
+
+    <!--BEGIN #signup-form -->
+    <div id="signup-form">
+        
+        <!--BEGIN #subscribe-inner -->
+        <div id="signup-inner">
+        
+        	<div class="clearfix" id="header">
+        	
+        		<img id="signup-icon" src="images/signature.png" alt="" />
+        
+                <h1>ISY Signature Creator</h1>
+
+            
+            </div>
+			<p>Please complete the fields below to generate an ISY email signature. </p>
+
+            
+            <form id="send" name="signatureform" action="signature.php" method="post" onsubmit="return(validate());">
+            	
+                <p>
+
+                <label for="name">Your Full Name *</label>
+                <input id="name" type="text" name="name" value="" />
+                </p>
+                
+                <p>
+                <label for="designation">Designation / Job Title *</label>
+                <input id="designation" type="text" name="designation" value="" />
+                </p>
+                
+                <p>
+
+                <label for="extension">Extension </label>
+                <input id="extension" type="text" name="extension" value="" maxlength="4" onkeypress="return isNumberKey(event)" />
+                </p>
+
+                <label for="Email">Email *</label>
+                <input id="Email" type="text" name="Email" value="" />
+                </p>
+                
+                <p>
+                <label for="GCE">Google Certified Educator Level</label>
+                <select id="gce" name="gce">
+                    <option value="">--</option>
+                    <option value="1">Level 1</option>
+                    <option value="2">Level 2</option>
+                </select>
+
+                </p>
+                
+                <p>
+
+                <button id="submit" type="submit">Submit</button>
+                </p>
+                
+            </form>
+
+            <div id="required">
+                <p>* Required Fields</p>
+            </div>
+            
+            </div>
+        
+        <!--END #signup-inner -->
+        </div>
+        
+    <!--END #signup-form -->   
+    </div>
+
+</body>
+</html>
